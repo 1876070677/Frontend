@@ -1,0 +1,49 @@
+.header {
+    padding: 0px 0px 48px;
+    box-sizing: border-box;
+    text-align: center;
+    height: 186px;;
+}
+
+.header_inner {
+    position: relative;
+    width: 743px;
+    height: 183px;
+    margin: 0 auto;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px -1px -1px -1px;
+    overflow: hidden hidden;
+
+}
+
+.lang {
+    position: absolute;
+    top: 20px;
+    right: 0;
+}
+
+.sel{
+    position: relative;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    padding: 4px 10px 6px 8px;
+    min-width: 95px;
+    width: 100%;
+    color: #333;
+    border: 1px solid #ccc;
+    cursor: pointer;
+}
+
+.header_logo {
+    margin: 108px auto 0 auto;
+    width: 150px;
+}

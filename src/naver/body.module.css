@@ -1,0 +1,26 @@
+.login_wrap {
+    box-sizing: border-box;
+    width: 460px;
+    margin: 0 auto;
+}
+
+div {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu_wrap {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.menu_item {
+    position: relative;
+    display: table-cell;
+    vertical-align: top;
+}

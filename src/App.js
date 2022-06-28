@@ -1,9 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Header from './naver/header';
+import Content from './naver/body';
 
 function App() {
   return (
     <div className="App">
+      <Header />
+      <Content />
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
