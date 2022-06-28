@@ -24,3 +24,52 @@ ul {
     display: table-cell;
     vertical-align: top;
 }
+
+.menu_id, 
+.menu_ones,
+.menu_qr{
+    display: block;
+    position: relative;
+    height: 61px;
+    padding-top: 17px;
+    border: 1px solid #e3e3e3;
+    background-color: #f8f9fa;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.menu_id {
+    border-right: 0;
+    border-radius: 6px 0 0 0;
+}
+
+.menu_qr {
+    border-left: 0;
+    border-radius: 0 6px 0 0 ;
+}
+
+.menu_text{
+    position: relative;
+    padding-left: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: -.5px;
+    color: #777;
+    vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.id_login_img {
+    width: 16px;
+    height: 16px;
+}
+
+.text {
+    position: relative;
+    padding: 16px 0 0 0;
+}
