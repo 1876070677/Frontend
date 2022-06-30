@@ -40,15 +40,11 @@ class Content extends Component {
                         </li>
                     </ul>
                     <form>
-                        <ul className={styles.panel_wrap}>
-                            <li className={styles.panel_item}>
-                                <div className={styles.panel_inner}>
-                                    <div className={styles.id_pw_wrap}>
-                                        
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
+                        <div className={styles.panel_wrap}>
+                            <div className={styles.input_wrap}>
+                                <input type="text" placeholder='아이디' className={styles.input_id}></input>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

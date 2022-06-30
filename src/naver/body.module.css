@@ -9,7 +9,13 @@ div {
 }
 
 ul {
+    display: block;
     list-style: none;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
 }
 
 .menu_wrap {
@@ -78,11 +84,20 @@ a {
 }
 
 form {
+    margin: 0;
+    padding: 0;
     display: block;
+    text-align: center;
+    margin-bottom: 20px;
 }
 
-.panel_item {
+.panel_wrap{
+    margin-top: -17px;
+    border-radius: 0 0 6px 6px;
     border: 1px solid #c6c6c6;
-    border-radius: 6px;
-    background-color: #fff;
+    border-top: none;
+}
+
+.input_wrap{
+    margin-top: 17px;
 }
