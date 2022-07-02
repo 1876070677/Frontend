@@ -180,12 +180,20 @@ input {
 .input_keep {
     top: 2px;
     left: 3px;
-    width: 15px;
-    height: 15px;
+    width: 18px;
+    height: 18px;
     margin: auto auto;
-    z-index: 1;
+    background: url('./icon/check(deactivate).png');
+    background-repeat: no-repeat;
+    background-size: 18px;
 }
 
 .keep_text {
+    padding-left: 5px;
     margin: auto auto;
+}
+
+.ip_check{
+    width:200px;
+    text-align: right;
 }

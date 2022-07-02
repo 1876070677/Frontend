@@ -61,6 +61,13 @@ class Content extends Component {
                                             로그인 상태 유지
                                         </label>
                                     </div>
+                                    <div className={styles.ip_check}>
+                                        <span className={styles.ip_text}>IP보안</span>
+                                        <input type="checkbox" id="switch" className={styles.switch_checkbox} value="off"></input>
+                                        <label className={styles.switch_btn}>
+
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
