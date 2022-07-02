@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from './body.module.css';
-import id_login from './idLogin(activate).png';
+import id_login from './icon/idLogin(activate).png';
+import pw_deact from './icon/pw(deactivate).png';
+import id_deact from './icon/id(deactivate).png';
 
 class Content extends Component {
     render() {
@@ -41,8 +43,25 @@ class Content extends Component {
                     </ul>
                     <form>
                         <div className={styles.panel_wrap}>
-                            <div className={styles.input_wrap}>
-                                <input type="text" placeholder='아이디' className={styles.input_id}></input>
+                            <div className={styles.panel_inner}>
+                                <div className={styles.id_pw_wrap}>
+                                    <div className={styles.input_row}>
+                                        <img src={id_deact} className={styles.login_deact} alt="id_login"></img>
+                                        <input type="text" placeholder='아이디' className={styles.input_text}></input>
+                                    </div>
+                                    <div className={styles.input_row}>
+                                        <img src={pw_deact} className={styles.login_deact} alt="pw_login"></img>
+                                        <input type="text" placeholder='비밀번호' className={styles.input_text}></input>
+                                    </div>
+                                </div>
+                                <div className={styles.login_keep_wrap}>
+                                    <div className={styles.keep_check}>
+                                        <input type="checkbox" id="keep" name="nvlong" className={styles.input_keep} value="off"></input>
+                                        <label for="keep" className={styles.keep_text}>
+                                            로그인 상태 유지
+                                        </label>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
