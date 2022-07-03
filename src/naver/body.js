@@ -63,16 +63,34 @@ class Content extends Component {
                                     </div>
                                     <div className={styles.ip_check}>
                                         <span className={styles.ip_text}>IP보안</span>
-                                        <input type="checkbox" id="switch" className={styles.switch_checkbox} value="off"></input>
-                                        <label className={styles.switch_btn}>
-
-                                        </label>
+                                        <div className={styles.switch_wrap}>
+                                            <input type="checkbox" id="switch" className={styles.switch_checkbox} value="off"></input>
+                                            <label className={styles.switch_label} htmlFor="switch">
+                                                <span className={styles.onf_btn}></span>
+                                            </label>
+                                        </div>
                                     </div>
+                                </div>
+                                <div className={styles.btn_login_wrap}>
+                                    <button type="submit" className={styles.btn_login} id="login">
+                                        <span className={styles.btn_text}>로그인</span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </form>
                 </div>
+                <ul className={styles.find_wrap}>
+                    <li>
+                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>비밀번호 찾기</a>
+                    </li>
+                    <li>
+                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>아이디 찾기</a>
+                    </li>
+                    <li>
+                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>회원가입</a>
+                    </li>
+                </ul>
             </div>
         )
     }

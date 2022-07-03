@@ -165,16 +165,22 @@ input {
     display: flex;
     position: relative;
     margin-top: -6px;
-    padding: 6px 17px 13px;
-    padding-right: 90px;
+    padding: 6px 0 13px 0;
+    width: 100%;
 }
 
 .keep_check {
     display: flex;
+    width: 70%;
+    padding-left: 17px;
     font-size: 14px;
     font-weight: 500;
     line-height: 17px;
     color: #777;
+}
+
+label {
+    cursor: pointer;
 }
 
 .input_keep {
@@ -182,18 +188,127 @@ input {
     left: 3px;
     width: 18px;
     height: 18px;
-    margin: auto auto;
+    margin: auto 0;
     background: url('./icon/check(deactivate).png');
     background-repeat: no-repeat;
     background-size: 18px;
 }
 
+.input_keep:checked{
+    background: url('./icon/check(activate\).png');
+    background-size: 18px;
+}
+
 .keep_text {
     padding-left: 5px;
-    margin: auto auto;
+    margin: auto 0;
 }
 
 .ip_check{
-    width:200px;
+    padding-right: 17px;
+    width: 30%;
+    display: inline-flex;
+}
+
+.ip_text{
+    width: 70%;
+    margin: auto 0;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    color: #777;
+    padding-right: 5px;
     text-align: right;
 }
+.switch_checkbox {
+    position: absolute;
+}
+
+.switch_wrap{
+    display:flex;
+    width: 30%;
+}
+
+.switch_label {
+    position: relative;
+    cursor: pointer;
+    width: 33px;
+    background: #c3c8c9;
+    border-radius: 12px;
+  }
+
+  .onf_btn {
+    position: absolute;
+    margin-top: -7px;
+    top: 50%;
+    left: 2px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #fff;
+    transition: all .1s ease;
+  }
+
+  .switch_checkbox:checked+ .switch_label {
+    background: #03c75a;
+  }
+
+  .switch_checkbox:checked+ .switch_label .onf_btn {
+    transform: translate(15px, 0);
+  }
+
+  .btn_login_wrap {
+    margin-top: 20px;
+    padding: 0 17px;
+    margin-bottom: 15px;
+  }
+
+  .btn_login {
+    display: block;
+    width: 100%;
+    padding: 13px 0 13px;
+    border-radius: 6px;
+    border: solid 1px rgba(0, 0, 0, .15);
+    background-color: #03c75a;
+    box-sizing: border-box;
+  }
+
+  .btn_text {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #fff;
+  }
+
+  .find_wrap{
+    padding: 5px 0 35px;
+    text-align: center;
+  }
+
+  .find_wrap li {
+    position: relative;
+    display: inline-block;
+  }
+
+  .find_wrap li+li{
+    padding-left: 28px;
+  }
+
+  .find_wrap li+li::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 12px;
+    width: 1px;
+    height: 12px;
+    border-radius: 0.5px;
+    background-color: #dadada;
+  }
+
+  .find_text {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    color: #888;
+  }
