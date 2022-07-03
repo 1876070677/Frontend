@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from "./header.module.css"
-import logo from './icon/logo.png';
 
 class Header extends Component {
     render(){
@@ -16,8 +15,8 @@ class Header extends Component {
                         </select>
                     </div>
                     
-                    <a href="https://www.naver.com">
-                        <img src={logo} className={styles.header_logo} alt="logo"></img>
+                    <a href="https://www.naver.com" className={styles.logo}>
+                        <h1 className={styles.blind}>naver</h1>
                     </a>
                 </div>
             </div>

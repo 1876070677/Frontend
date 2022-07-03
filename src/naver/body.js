@@ -3,6 +3,7 @@ import styles from './body.module.css';
 import id_login from './icon/idLogin(activate).png';
 import pw_deact from './icon/pw(deactivate).png';
 import id_deact from './icon/id(deactivate).png';
+import adv from './icon/ad.jpg';
 
 class Content extends Component {
     render() {
@@ -91,6 +92,9 @@ class Content extends Component {
                         <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>회원가입</a>
                     </li>
                 </ul>
+                <div className={styles.adv}>
+                    <img src={adv} className={styles.adv} alt="adv"></img>
+                </div>
             </div>
         )
     }

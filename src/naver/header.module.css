@@ -43,7 +43,23 @@
     cursor: pointer;
 }
 
-.header_logo {
-    margin: 108px auto 0 auto;
-    width: 150px;
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.logo {
+    display: inline-block;
+    margin-top: 108px;
+    vertical-align: top;
+    background-image: url('./icon/Naver Logo.png');
+    background-size: 244px 107px;
+    background-position: 0 -51px;
+    background-repeat: no-repeat;
+    width: 155px;
+    height: 30px;
 }

@@ -1,0 +1,89 @@
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    -webkit-text-size-adjust: none;
+}
+
+.footer {
+    padding: 40px 0 32px;
+    box-sizing: border-box;
+}
+
+.footer_inner{
+    padding: 0;
+    text-align: center;
+}
+
+.footer_link li {
+    display: inline-block;
+}
+
+.footer_link li+li {
+    position: relative;
+    padding-left: 13px;
+}
+
+.footer_link li+li::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    width: 1px;
+    height: 11px;
+    background-color: #dadada;
+}
+
+.text {
+    font-size : 12px;
+    line-height: 15px;
+    letter-spacing: -.5px;
+    color: #888;
+}
+
+.footer_copy {
+    margin-top: 9px;
+}
+
+.footer_logo {
+    display: inline-block;
+    vertical-align: top;
+    background-image: url('./icon/Naver Logo.png');
+    background-size: 244px 107px;
+    width: 70px;
+    height: 15px;
+    background-position: -157px -52px;
+    background-repeat: no-repeat;
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
+.ft_text{
+    line-height: 16px;
+    padding: 0 5px;
+    font-size: 12px;
+    letter-spacing: -.5px;
+    color: #888;
+    font-family: 'Helvetica Neue',sans-serif;
+}
+
+.corp {
+    line-height: 16px;
+    font-size: 12px;
+    letter-spacing: -.5px;
+    padding: 0 2px;
+    color: #000;
+    font-family: 'Helvetica Neue',sans-serif;
+}
