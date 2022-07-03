@@ -1,42 +1,51 @@
 import React, { Component } from 'react';
 import styles from './body.module.css';
-import id_login from './icon/idLogin(activate).png';
-import pw_deact from './icon/pw(deactivate).png';
-import id_deact from './icon/id(deactivate).png';
 import adv from './icon/ad.jpg';
 
 class Content extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            tabInfo : 0
+        };
+    }
+
+    selectTab = () =>{
+        alert(this.state.tabInfo);
+    }
+
     render() {
         return (
             <div className='content'>
                 <div className={styles.login_wrap}>
                     <ul className={styles.menu_wrap}>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={styles.menu_id}>
-                                <div className={styles.img_wrap}>
-                                    <img src={id_login} className={styles.id_login_img} alt="id_login"></img>
-                                </div>
+                            <a href="#none" className={styles.menu_id} onClick={this.selectTab}>
                                 <span className={styles.menu_text}>
+                                    <span className={styles.id_login_sel}>
+                                        <span className={styles.blind}>ID로그인</span>
+                                    </span>
                                     <span className={styles.text}>ID 로그인</span>
                                 </span>
                             </a>
                         </li>
-                        <li className={styles.menu_item} role="presentation">
+                        <li className={styles.menu_item}>
                             <a href="#none" className={styles.menu_ones}>
-                                <div className={styles.img_wrap}>
-                                    <img src={id_login} className={styles.id_login_img} alt="id_login"></img>
-                                </div>
                                 <span className={styles.menu_text}>
+                                    <span className={styles.id_temp_sel}>
+                                        <span className={styles.blind}>ID로그인</span>
+                                    </span>
                                     <span className={styles.text}>일회용 번호</span>
                                 </span>
                             </a>
                         </li>
-                        <li className={styles.menu_item} role="presentation">
+                        <li className={styles.menu_item}>
                             <a href="#none" className={styles.menu_qr}>
-                                <div className={styles.img_wrap}>
-                                    <img src={id_login} className={styles.id_login_img} alt="id_login"></img>
-                                </div>
                                 <span className={styles.menu_text}>
+                                    <span className={styles.id_qr_sel}>
+                                        <span className={styles.blind}>ID로그인</span>
+                                    </span>
                                     <span className={styles.text}>QR 코드</span>
                                 </span>
                             </a>
@@ -47,11 +56,15 @@ class Content extends Component {
                             <div className={styles.panel_inner}>
                                 <div className={styles.id_pw_wrap}>
                                     <div className={styles.input_row}>
-                                        <img src={id_deact} className={styles.login_deact} alt="id_login"></img>
+                                        <span className={styles.icon_id}>
+                                            <span className={styles.blind}>비밀번호</span>
+                                        </span>
                                         <input type="text" placeholder='아이디' className={styles.input_text}></input>
                                     </div>
                                     <div className={styles.input_row}>
-                                        <img src={pw_deact} className={styles.login_deact} alt="pw_login"></img>
+                                        <span className={styles.icon_pw}>
+                                            <span className={styles.blind}>비밀번호</span>
+                                        </span>
                                         <input type="text" placeholder='비밀번호' className={styles.input_text}></input>
                                     </div>
                                 </div>

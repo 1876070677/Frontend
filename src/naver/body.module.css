@@ -4,6 +4,25 @@
     margin: 0 auto;
 }
 
+.input_keep,
+.icon_pw,
+.icon_id,
+.id_login_sel,
+.id_temp_sel,
+.id_qr_sel{
+    background: url('./icon/icon.png');
+    background-size: 266px 225px;
+}
+
+.blind {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+}
+
 div {
     display: block;
 }
@@ -28,7 +47,7 @@ ul {
 .menu_item {
     position: relative;
     display: table-cell;
-    vertical-align: top;
+    vertical-align: middle;
 }
 
 .menu_id, 
@@ -40,6 +59,7 @@ ul {
     border: 1px solid #e3e3e3;
     background-color: #f8f9fa;
     text-align: center;
+    vertical-align: middle;
     box-sizing: border-box;
 }
 
@@ -54,16 +74,14 @@ ul {
 }
 
 .menu_text{
-    width: 70%;
+    display: flex;
     position: relative;
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: -.5px;
-    text-align: left;
-    padding-left: 10px;
     color: #777;
-    margin: auto 0 auto 0;
+    margin: auto auto;
 }
 
 a {
@@ -71,16 +89,30 @@ a {
     cursor: pointer;
 }
 
-.img_wrap{
-    width: 30%;
-    padding-top: 3px;
-    margin: auto 0 auto 0;
-    text-align: right;
-}
-
-.id_login_img {
+.id_login_sel,
+.id_temp_sel,
+.id_qr_sel{
+    display: inline-block;
+    margin: auto 0;
     width: 16px;
     height: 16px;
+    background-repeat: none;
+}
+
+.id_login_sel{
+    background-position: -142px -172px;
+}
+
+.id_temp_sel{
+    background-position: -160px -172px;
+}
+
+.id_qr_sel{
+    background-position: -124px -172px;
+}
+
+.text{
+    padding-left: 8px;   
 }
 
 form {
@@ -118,6 +150,22 @@ form {
     position: relative;
     height: 100%;
     border: 1px solid #dadada;
+}
+
+.icon_id {
+    margin: auto auto;
+    width: 16px;
+    height: 16px;
+    background-position: -94px -204px;
+    background-repeat: no-repeat;
+}
+
+.icon_pw {
+    margin: auto auto;
+    width: 16px;
+    height: 16px;
+    background-position: -130px -204px;
+    background-repeat: no-repeat;
 }
 
 .input_row:first-child {
@@ -189,8 +237,6 @@ label {
     width: 18px;
     height: 18px;
     margin: auto 0;
-    background: url('./icon/icon.png');
-    background-size: 266px 225px;
     background-position: -244px -87px;
     background-repeat: no-repeat;
 }
