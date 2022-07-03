@@ -7,12 +7,26 @@ class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tabInfo : 0
+            login_opt : [true, false, false]
         };
     }
 
-    selectTab = () =>{
-        alert(this.state.tabInfo);
+    idOptionChange = (param, e) =>{
+        if (param === 1) {
+            this.setState({
+                login_opt : [true, false, false]
+            });
+        }
+        else if (param === 2) {
+            this.setState({
+                login_opt : [false, true, false]
+            });
+        }
+        else if (param === 3) {
+            this.setState({
+                login_opt : [false, false, true]
+            });
+        }
     }
 
     render() {
@@ -21,32 +35,32 @@ class Content extends Component {
                 <div className={styles.login_wrap}>
                     <ul className={styles.menu_wrap}>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={styles.menu_id} onClick={this.selectTab}>
+                            <a href="#none" className={this.state.login_opt[0]? styles.menu_id_sel : styles.menu_id} onClick={(e) => {this.idOptionChange(1, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={styles.id_login_sel}>
+                                    <span className={this.state.login_opt[0]? styles.id_login_sel : styles.id_login_nosel}>
                                         <span className={styles.blind}>ID로그인</span>
                                     </span>
-                                    <span className={styles.text}>ID 로그인</span>
+                                    <span className={this.state.login_opt[0] ? styles.text_sel : styles.text}>ID 로그인</span>
                                 </span>
                             </a>
                         </li>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={styles.menu_ones}>
+                            <a href="#none" className={this.state.login_opt[1]? styles.menu_ones_sel : styles.menu_ones} onClick={(e) => {this.idOptionChange(2, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={styles.id_temp_sel}>
-                                        <span className={styles.blind}>ID로그인</span>
+                                    <span className={this.state.login_opt[1]? styles.id_temp_sel: styles.id_temp_nosel}>
+                                        <span className={styles.blind}>일회용로그인</span>
                                     </span>
-                                    <span className={styles.text}>일회용 번호</span>
+                                    <span className={this.state.login_opt[1] ? styles.text_sel : styles.text}>일회용 번호</span>
                                 </span>
                             </a>
                         </li>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={styles.menu_qr}>
+                            <a href="#none" className={this.state.login_opt[2]? styles.menu_qr_sel : styles.menu_qr} onClick={(e) => {this.idOptionChange(3, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={styles.id_qr_sel}>
-                                        <span className={styles.blind}>ID로그인</span>
+                                    <span className={this.state.login_opt[2]? styles.id_qr_sel : styles.id_qr_nosel}>
+                                        <span className={styles.blind}>QR로그인</span>
                                     </span>
-                                    <span className={styles.text}>QR 코드</span>
+                                    <span className={this.state.login_opt[2] ? styles.text_sel : styles.text}>QR 코드</span>
                                 </span>
                             </a>
                         </li>
