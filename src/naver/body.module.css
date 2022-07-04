@@ -18,7 +18,9 @@
 .menu_id_sel::after,
 .menu_ones_sel::before,
 .menu_ones_sel::after,
-.menu_qr_sel::before{
+.menu_qr_sel::before,
+.icon_id_sel,
+.icon_pw_sel{
     background: url('./icon/icon.png');
     background-size: 266px 225px;
 }
@@ -254,7 +256,8 @@ form {
 }
 
 .id_pw_wrap,
-.input_row {
+.input_row,
+.input_row_sel {
     display: table;
     table-layout: fixed;
     width: 100%;
@@ -269,12 +272,28 @@ form {
     border: 1px solid #dadada;
 }
 
+.input_row_sel{
+    display: flex;
+    position: relative;
+    height: 100%;
+    border: 1px solid #03c75a;
+    z-index: 1;
+}
+
 .icon_id {
     margin: auto auto;
     width: 16px;
     height: 16px;
     background-position: -94px -204px;
     background-repeat: no-repeat;
+}
+
+.icon_id_sel{
+    margin: auto auto;
+    width: 16px;
+    height: 16px;
+    background-position: -75px -204px;
+    background-repeat: no-repeat; 
 }
 
 .icon_pw {
@@ -285,11 +304,21 @@ form {
     background-repeat: no-repeat;
 }
 
-.input_row:first-child {
+.icon_pw_sel{
+    margin: auto auto;
+    width: 16px;
+    height: 16px;
+    background-position: -111px -203px;
+    background-repeat: no-repeat;
+}
+
+.input_row:first-child,
+.input_row_sel:first-child {
     border-radius: 6px 6px 0 0;
 }
 
-.input_row:last-child {
+.input_row:last-child,
+.input_row_sel:last-child {
     margin-top: -1px;
     border-radius: 0 0 6px 6px;
 }

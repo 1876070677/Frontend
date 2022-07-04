@@ -20,6 +20,10 @@ ul {
     text-align: center;
 }
 
+.footer_link {
+    padding: 0
+}
+
 .footer_link li {
     display: inline-block;
 }

@@ -7,8 +7,22 @@ class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            idFocus : false,
+            pwFocus : false,
             login_opt : [true, false, false]
         };
+    }
+
+    updateIdFocus = () => {
+        this.setState({
+            idFocus : !this.state.idFocus
+        })
+    }
+
+    updatePwFocus = () => {
+        this.setState({
+            pwFocus: !this.state.pwFocus
+        })
     }
 
     idOptionChange = (param, e) =>{
@@ -69,17 +83,17 @@ class Content extends Component {
                         <div className={styles.panel_wrap}>
                             <div className={styles.panel_inner}>
                                 <div className={styles.id_pw_wrap}>
-                                    <div className={styles.input_row}>
-                                        <span className={styles.icon_id}>
+                                    <div className={this.state.idFocus? styles.input_row_sel : styles.input_row}>
+                                        <span className={this.state.idFocus? styles.icon_id_sel : styles.icon_id}>
                                             <span className={styles.blind}>비밀번호</span>
                                         </span>
-                                        <input type="text" placeholder='아이디' className={styles.input_text}></input>
+                                        <input type="text" placeholder='아이디' className={styles.input_text} onFocus={this.updateIdFocus} onBlur={this.updateIdFocus}></input>
                                     </div>
-                                    <div className={styles.input_row}>
-                                        <span className={styles.icon_pw}>
+                                    <div className={this.state.pwFocus? styles.input_row_sel : styles.input_row}>
+                                        <span className={this.state.pwFocus ? styles.icon_pw_sel : styles.icon_pw}>
                                             <span className={styles.blind}>비밀번호</span>
                                         </span>
-                                        <input type="text" placeholder='비밀번호' className={styles.input_text}></input>
+                                        <input type="password" placeholder='비밀번호' className={styles.input_text} onFocus={this.updatePwFocus} onBlur={this.updatePwFocus}></input>
                                     </div>
                                 </div>
                                 <div className={styles.login_keep_wrap}>
@@ -90,7 +104,9 @@ class Content extends Component {
                                         </label>
                                     </div>
                                     <div className={styles.ip_check}>
-                                        <span className={styles.ip_text}>IP보안</span>
+                                        <a href="https://nid.naver.com/login/ext/help_ip3.html" target="_blank" title="IP보안" className={styles.ip_text} rel="noopener noreferrer">
+                                            <span>IP보안</span>
+                                        </a>
                                         <div className={styles.switch_wrap}>
                                             <input type="checkbox" id="switch" className={styles.switch_checkbox} value="off"></input>
                                             <label className={styles.switch_label} htmlFor="switch">
@@ -110,13 +126,13 @@ class Content extends Component {
                 </div>
                 <ul className={styles.find_wrap}>
                     <li>
-                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>비밀번호 찾기</a>
+                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text} target="_blank" rel="noopener noreferrer">비밀번호 찾기</a>
                     </li>
                     <li>
-                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>아이디 찾기</a>
+                        <a href="https://nid.naver.com/user2/api/route?m=routeIdInquiry&lang=ko_KR" className={styles.find_text} target="_blank" rel="noopener noreferrer">아이디 찾기</a>
                     </li>
                     <li>
-                        <a href="https://nid.naver.com/user2/api/route?m=routePwInquiry&lang=ko_KR" className={styles.find_text}>회원가입</a>
+                        <a href="https://nid.naver.com/user2/V2Join?m=agree&lang=ko_KR" className={styles.find_text} target="_blank" rel="noopener noreferrer">회원가입</a>
                     </li>
                 </ul>
                 <div className={styles.adv}>
