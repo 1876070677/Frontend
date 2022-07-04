@@ -20,7 +20,8 @@
 .menu_ones_sel::after,
 .menu_qr_sel::before,
 .icon_id_sel,
-.icon_pw_sel{
+.icon_pw_sel,
+.bullet_set{
     background: url('./icon/icon.png');
     background-size: 266px 225px;
 }
@@ -249,10 +250,45 @@ form {
     border-top: none;
 }
 
+.panel_hide {
+    display: none;
+}
+
 .panel_inner{
     display:block;
     margin-top: 17px;
     padding: 5px 10px; 
+}
+
+.panel_inner_ones {
+    display: block;
+    margin-top: 17px;
+    padding: 18px 28px 19px;
+}
+
+.ones_text{
+    padding: 21px 0 38px;
+    font-size: 15px;
+    line-height: 21px;
+    letter-spacing: -.6px;
+    color: #1e1e23;
+    text-align: center;
+    vertical-align: top;
+}
+
+.accent {
+    font-weight: 500;
+    color: #03c75a;
+}
+
+.bullet_set {
+    display: inline-block;
+    margin-top: 2px;
+    vertical-align: top;
+    background-position: -86px -172px;
+    background-repeat: no-repeat;
+    width: 17px;
+    height: 16px;
 }
 
 .id_pw_wrap,
@@ -278,6 +314,23 @@ form {
     height: 100%;
     border: 1px solid #03c75a;
     z-index: 1;
+}
+
+.input_number,
+.input_number_sel {
+    display: block;
+    position: relative;
+    text-align: center;
+    height: 100%;
+    border: 1px solid #dadada;
+    border-radius: 6px;
+    padding: 16px 18px 15px;
+    box-sizing: border-box;
+    box-shadow: 0 2px 6px rgb(68 68 68 / 8%);
+}
+
+.input_number_sel {
+    border: 1px solid #03c75a;
 }
 
 .icon_id {
@@ -321,6 +374,7 @@ form {
 .input_row_sel:last-child {
     margin-top: -1px;
     border-radius: 0 0 6px 6px;
+    box-shadow: 0 2px 6px rgb(68 68 68 / 8%);
 }
 
 input {
@@ -343,6 +397,20 @@ input {
     line-height: 19px;
     letter-spacing: -.5px;
     padding-left: 10px;
+    color: #222;
+    box-sizing: border-box;
+    z-index: 4;
+}
+
+.input_text_number{
+    margin: auto auto;
+    position: relative;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: -.5px;
+    text-align: center;
     color: #222;
     box-sizing: border-box;
     z-index: 4;
@@ -453,6 +521,10 @@ label {
     margin-top: 20px;
     padding: 0 17px;
     margin-bottom: 15px;
+  }
+
+  .btn_ones_wrap{
+    margin-top: 10px;
   }
 
   .btn_login {

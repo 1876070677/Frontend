@@ -9,6 +9,8 @@ class Content extends Component {
         this.state = {
             idFocus : false,
             pwFocus : false,
+            nbFocus : false,
+            currentIdx : 1,
             login_opt : [true, false, false]
         };
     }
@@ -25,6 +27,12 @@ class Content extends Component {
         })
     }
 
+    updateNbFocuse = () => {
+        this.setState({
+            nbFocus: !this.state.nbFocus
+        })
+    }
+
     idOptionChange = (param, e) =>{
         if (param === 1) {
             this.setState({
@@ -33,14 +41,20 @@ class Content extends Component {
         }
         else if (param === 2) {
             this.setState({
+
                 login_opt : [false, true, false]
             });
         }
         else if (param === 3) {
             this.setState({
-                login_opt : [false, false, true]
+                login_opt : [true, false, false]
             });
+            param = 1
+            alert("구현되지 않은 기능입니다.")
         }
+        this.setState({
+            currentIdx: param
+        })
     }
 
     render() {
@@ -81,7 +95,7 @@ class Content extends Component {
                     </ul>
                     <form>
                         <div className={styles.panel_wrap}>
-                            <div className={styles.panel_inner}>
+                            <div className={this.state.currentIdx === 1 ? styles.panel_inner : styles.panel_hide}>
                                 <div className={styles.id_pw_wrap}>
                                     <div className={this.state.idFocus? styles.input_row_sel : styles.input_row}>
                                         <span className={this.state.idFocus? styles.icon_id_sel : styles.icon_id}>
@@ -120,6 +134,28 @@ class Content extends Component {
                                         <span className={styles.btn_text}>로그인</span>
                                     </button>
                                 </div>
+                            </div>
+                            <div className={this.state.currentIdx === 2 ? styles.panel_inner_ones : styles.panel_hide}>
+                                <div className={styles.ones_text}>
+                                     네이버앱의&nbsp;
+                                    <span className={styles.accent}>
+                                        메뉴 > 설정&nbsp;
+                                        <em class={styles.bullet_set}></em>
+                                        &nbsp;> 로그인 아이디 관리
+                                        <br></br>
+                                        > 일회용 로그인 번호 받기
+                                    </span>
+                                    에 보이는 번호를 입력해 주세요. 
+                                </div>
+                                <div className={this.state.nbFocus ? styles.input_number_sel : styles.input_number} onFocus={this.updateNbFocuse} onBlur={this.updateNbFocuse}>
+                                    <input type="text" name="key" placeholder="번호를 입력하세요." title="번호를 입력하세요." 
+                                    className={styles.input_text_number}></input>
+                                </div>
+                                <div className={styles.btn_ones_wrap}>
+                                    <button type='submit' className={styles.btn_login}>
+                                        <span className={styles.btn_text}>로그인</span>
+                                    </button>
+                                </div>      
                             </div>
                         </div>
                     </form>
