@@ -1,8 +1,7 @@
-FROM node:14.15.4
-
-RUN npm install -g serve
-
-RUN mkdir ./build
-COPY ./build ./build
-
-ENTRYPOINT ["serve", "-s", "build"]
+FROM node:alpine
+WORKDIR "/usr/src/app"
+COPY package.json ./
+RUN npm install -g npm@8.13.2
+RUN npm install
+COPY ./ ./
+CMD ["npm", "start"]
