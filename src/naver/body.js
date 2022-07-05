@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styles from './body.module.css';
 import adv from './icon/ad.jpg';
 import styled from 'styled-components';
+import axios from 'axios';
 
 class Content extends Component {
 
@@ -13,7 +14,9 @@ class Content extends Component {
             nbFocus : false,
             nudgeOpen : true,
             currentIdx : 1,
-            login_opt : [true, false, false]
+            userId : '',
+            userPw : '',
+            nickname : ''
         };
         this.autoIdFocus = React.createRef();
     }
@@ -48,27 +51,38 @@ class Content extends Component {
     }
 
     idOptionChange = (param, e) =>{
-        if (param === 1) {
-            this.setState({
-                login_opt : [true, false, false]
-            }, () => this.autoFocus());
-            
-        }
-        else if (param === 2) {
-            this.setState({
-                login_opt : [false, true, false]
-            });
-        }
-        else if (param === 3) {
-            this.setState({
-                login_opt : [true, false, false]
-            }, () => this.autoFocus());
+        if (param === 3) {
             param = 1
             alert("구현되지 않은 기능입니다.")
         }
         this.setState({
             currentIdx: param
+        }, () => param === 1? this.autoFocus() : null)
+    }
+
+    login = () => {
+        if (this.state.userId === "" || this.state.userPw === "") {
+            alert("아이디 또는 비밀번호를 입력해주세요");
+            return;
+        }
+        // 아이디와 비번이 입력되어 있는 경우
+        axios({
+            method: "post",
+            url: "http://shbox.shop:3007/user/login",
+            data: {
+                id: this.state.userId,
+                password: this.state.userPw
+            },
+        }).then((res) => {
+            console.log(res)
+            this.setState({
+                userId : res.data.content.id,
+                userPw : res.data.content.password
+            })
         })
+        .catch(function (error) {
+            console.log(error)
+        });
     }
 
     render() {
@@ -77,32 +91,32 @@ class Content extends Component {
                 <div className={styles.login_wrap}>
                     <ul className={styles.menu_wrap}>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={this.state.login_opt[0]? styles.menu_id_sel : styles.menu_id} onClick={(e) => {this.idOptionChange(1, e)}}>
+                            <a href="#none" className={this.state.currentIdx === 1? styles.menu_id_sel : styles.menu_id} onClick={(e) => {this.idOptionChange(1, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={this.state.login_opt[0]? styles.id_login_sel : styles.id_login_nosel}>
+                                    <span className={this.state.currentIdx === 1? styles.id_login_sel : styles.id_login_nosel}>
                                         <span className={styles.blind}>ID로그인</span>
                                     </span>
-                                    <span className={this.state.login_opt[0] ? styles.text_sel : styles.text}>ID 로그인</span>
+                                    <span className={this.state.currentIdx === 1? styles.text_sel : styles.text}>ID 로그인</span>
                                 </span>
                             </a>
                         </li>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={this.state.login_opt[1]? styles.menu_ones_sel : styles.menu_ones} onClick={(e) => {this.idOptionChange(2, e)}}>
+                            <a href="#none" className={this.state.currentIdx === 2? styles.menu_ones_sel : styles.menu_ones} onClick={(e) => {this.idOptionChange(2, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={this.state.login_opt[1]? styles.id_temp_sel: styles.id_temp_nosel}>
+                                    <span className={this.state.currentIdx === 2? styles.id_temp_sel: styles.id_temp_nosel}>
                                         <span className={styles.blind}>일회용로그인</span>
                                     </span>
-                                    <span className={this.state.login_opt[1] ? styles.text_sel : styles.text}>일회용 번호</span>
+                                    <span className={this.state.currentIdx === 2? styles.text_sel : styles.text}>일회용 번호</span>
                                 </span>
                             </a>
                         </li>
                         <li className={styles.menu_item}>
-                            <a href="#none" className={this.state.login_opt[2]? styles.menu_qr_sel : styles.menu_qr} onClick={(e) => {this.idOptionChange(3, e)}}>
+                            <a href="#none" className={this.state.currentIdx === 3? styles.menu_qr_sel : styles.menu_qr} onClick={(e) => {this.idOptionChange(3, e)}}>
                                 <span className={styles.menu_text}>
-                                    <span className={this.state.login_opt[2]? styles.id_qr_sel : styles.id_qr_nosel}>
+                                    <span className={this.state.currentIdx === 3? styles.id_qr_sel : styles.id_qr_nosel}>
                                         <span className={styles.blind}>QR로그인</span>
                                     </span>
-                                    <span className={this.state.login_opt[2] ? styles.text_sel : styles.text}>QR 코드</span>
+                                    <span className={this.state.currentIdx === 3? styles.text_sel : styles.text}>QR 코드</span>
                                 </span>
                             </a>
                             {this.state.nudgeOpen && <NudgeBanner>
@@ -119,15 +133,17 @@ class Content extends Component {
                                 <div className={styles.id_pw_wrap}>
                                     <div className={this.state.idFocus? styles.input_row_sel : styles.input_row}>
                                         <span className={this.state.idFocus? styles.icon_id_sel : styles.icon_id}>
-                                            <span className={styles.blind}>비밀번호</span>
+                                            <span className={styles.blind}>아이디</span>
                                         </span>
-                                        <input ref={this.autoIdFocus} type="text" placeholder='아이디' className={styles.input_text} onFocus={this.updateIdFocus} onBlur={this.updateIdFocus} autoFocus></input>
+                                        <input ref={this.autoIdFocus} type="text" name="id_input" placeholder='아이디' value={this.state.userId} className={styles.input_text} onFocus={this.updateIdFocus} onBlur={this.updateIdFocus} autoFocus
+                                        onChange={(e) => {this.setState({userId : e.target.value})}}></input>
                                     </div>
                                     <div className={this.state.pwFocus? styles.input_row_sel : styles.input_row}>
                                         <span className={this.state.pwFocus ? styles.icon_pw_sel : styles.icon_pw}>
                                             <span className={styles.blind}>비밀번호</span>
                                         </span>
-                                        <input type="password" placeholder='비밀번호' className={styles.input_text} onFocus={this.updatePwFocus} onBlur={this.updatePwFocus}></input>
+                                        <input type="password" name="pw_input" placeholder='비밀번호' className={styles.input_text} onFocus={this.updatePwFocus} onBlur={this.updatePwFocus}
+                                        onChange={(e) => {this.setState({userPw : e.target.value})}}></input>
                                     </div>
                                 </div>
                                 <div className={styles.login_keep_wrap}>
@@ -150,7 +166,7 @@ class Content extends Component {
                                     </div>
                                 </div>
                                 <div className={styles.btn_login_wrap}>
-                                    <button type="submit" className={styles.btn_login} id="login">
+                                    <button type="submit" className={styles.btn_login} id="login" onClick={this.login}>
                                         <span className={styles.btn_text}>로그인</span>
                                     </button>
                                 </div>
