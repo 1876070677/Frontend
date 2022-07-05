@@ -21,7 +21,8 @@
 .menu_qr_sel::before,
 .icon_id_sel,
 .icon_pw_sel,
-.bullet_set{
+.bullet_set,
+.icon_nudge_close{       
     background: url('./icon/icon.png');
     background-size: 266px 225px;
 }
@@ -233,6 +234,29 @@ a {
 
 .text_sel {
     color: #333;
+}
+
+.nudge_close{
+    position: absolute;
+    top: -2px;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 0;
+    border: none;
+    background: 0 0;
+    appearance: none;
+    outline: 0;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.icon_nudge_close {
+    display: inline-block;
+    background-position: -198px -91px;
+    background-repeat: no-repeat;
+    width: 9px;
+    height: 9px;
 }
 
 form {

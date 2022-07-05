@@ -5,6 +5,8 @@
     + CSS 기본 태그 익히기
     + React에서 컴포넌트 단위로 나누어서 개발하는 방식(header, body, footer로 나누었음)
     + React에서 state를 이용한 동적 렌더링
+    + React의 Styled-Component 를 이용하여 NudgeBanner 구현
+    + React의 Ref를 이용하여 Input ID 부분의 AutoFocus를 적용 - Ref를 이용하여 Dom 객체에 직접 접근하는 것을 학습
     + (구현 예정) 실제 로그인 기능 구현
     + (구현 예정) 로그인 시 보안 기능 구현(토큰화 + 암호화)
     + (구현 예정) 반응형 웹사이트 구현

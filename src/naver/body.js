@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styles from './body.module.css';
 import adv from './icon/ad.jpg';
+import styled from 'styled-components';
 
 class Content extends Component {
 
@@ -10,9 +11,16 @@ class Content extends Component {
             idFocus : false,
             pwFocus : false,
             nbFocus : false,
+            nudgeOpen : true,
             currentIdx : 1,
             login_opt : [true, false, false]
         };
+        this.autoIdFocus = React.createRef();
+    }
+
+    autoFocus() {
+        console.log(this.autoIdFocus);
+        this.autoIdFocus.current.focus();
     }
 
     updateIdFocus = () => {
@@ -33,22 +41,28 @@ class Content extends Component {
         })
     }
 
+    updateNudge = () => {
+        this.setState({
+            nudgeOpen: !this.state.nudgeOpen
+        })
+    }
+
     idOptionChange = (param, e) =>{
         if (param === 1) {
             this.setState({
                 login_opt : [true, false, false]
-            });
+            }, () => this.autoFocus());
+            
         }
         else if (param === 2) {
             this.setState({
-
                 login_opt : [false, true, false]
             });
         }
         else if (param === 3) {
             this.setState({
                 login_opt : [true, false, false]
-            });
+            }, () => this.autoFocus());
             param = 1
             alert("구현되지 않은 기능입니다.")
         }
@@ -91,6 +105,12 @@ class Content extends Component {
                                     <span className={this.state.login_opt[2] ? styles.text_sel : styles.text}>QR 코드</span>
                                 </span>
                             </a>
+                            {this.state.nudgeOpen && <NudgeBanner>
+                                <NudgeText>ID : sihyeon / PW : sihyeon1! 로그인가능</NudgeText>
+                                <button type="button" className={styles.nudge_close} onClick={this.updateNudge}>
+                                    <span className={styles.icon_nudge_close}></span>
+                                </button>
+                            </NudgeBanner>}
                         </li>
                     </ul>
                     <form>
@@ -101,7 +121,7 @@ class Content extends Component {
                                         <span className={this.state.idFocus? styles.icon_id_sel : styles.icon_id}>
                                             <span className={styles.blind}>비밀번호</span>
                                         </span>
-                                        <input type="text" placeholder='아이디' className={styles.input_text} onFocus={this.updateIdFocus} onBlur={this.updateIdFocus}></input>
+                                        <input ref={this.autoIdFocus} type="text" placeholder='아이디' className={styles.input_text} onFocus={this.updateIdFocus} onBlur={this.updateIdFocus} autoFocus></input>
                                     </div>
                                     <div className={this.state.pwFocus? styles.input_row_sel : styles.input_row}>
                                         <span className={this.state.pwFocus ? styles.icon_pw_sel : styles.icon_pw}>
@@ -113,7 +133,7 @@ class Content extends Component {
                                 <div className={styles.login_keep_wrap}>
                                     <div className={styles.keep_check}>
                                         <input type="checkbox" id="keep" name="nvlong" className={styles.input_keep} value="off"></input>
-                                        <label for="keep" className={styles.keep_text}>
+                                        <label htmlFor="keep" className={styles.keep_text}>
                                             로그인 상태 유지
                                         </label>
                                     </div>
@@ -178,5 +198,30 @@ class Content extends Component {
         )
     }
 }
+
+const NudgeBanner = styled.div`
+    position: absolute;
+    top: -17px;
+    right: -37px;
+    height: 25px;
+    padding: 4px 20px 3px 9px;
+    border-radius: 12px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 10%);
+    border: solid 1px #03c75a;
+    background-color: #fff;
+    box-sizing: border-box;
+    z-index: 10;
+`;
+
+const NudgeText = styled.span`
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 500;
+    line-height: 14px;
+    letter-spacing: -.56px;
+    white-space: nowrap;
+    color: #03c75a;
+    vertical-align: top;
+`;
 
 export default Content;
