@@ -4,6 +4,8 @@ import adv from './icon/ad.jpg';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 import {updateNudge} from '../store/updateBodyState';
+import {isLogin, setId} from '../store/userInfo';
+import {Link, useNavigate} from 'react-router-dom';
 
 function Content(props) {
 
@@ -11,6 +13,7 @@ function Content(props) {
     const ngOpen = useSelector(state => {
         return state.changeBodyState.nudgeOpen;
     })
+    const navigate = useNavigate();
 
     const [idFocus, setIF] = useState(false);
     const [pwFocus, setPF] = useState(false);
@@ -38,6 +41,18 @@ function Content(props) {
         setCurrentIdx(param);
     }
 
+    const submitHandler = (e) => {
+        console.log(e.target.id_input.value);
+        e.preventDefault();
+        if (e.target.id_input.value === "" || e.target.pw_input.value === "") {
+            alert("아이디 또는 비밀번호를 입력해주세요!");
+        } else {
+            dispatch(isLogin(true));
+            dispatch(setId(e.target.id_input.value));
+            navigate('/dev', {replace: true})
+        }
+    }
+
     useEffect(() =>{
         if(currentIdx === 1) {
             autoIdFocus.current.focus();
@@ -51,34 +66,34 @@ function Content(props) {
             <div className={styles.login_wrap}>
                 <ul className={styles.menu_wrap}>
                     <li className={styles.menu_item}>
-                        <a href="#none" className={currentIdx === 1? styles.menu_id_sel : styles.menu_id} onClick={(e) => {idOptionChange(1, e)}}>
+                        <Link to="/" className={currentIdx === 1? styles.menu_id_sel : styles.menu_id} onClick={(e) => {idOptionChange(1, e)}}>
                             <span className={styles.menu_text}>
                                 <span className={currentIdx === 1? styles.id_login_sel : styles.id_login_nosel}>
                                     <span className={styles.blind}>ID로그인</span>
                                 </span>
                                 <span className={currentIdx === 1? styles.text_sel : styles.text}>ID 로그인</span>
                             </span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={styles.menu_item}>
-                        <a href="#none" className={currentIdx === 2? styles.menu_ones_sel : styles.menu_ones} onClick={(e) => {idOptionChange(2, e)}}>
+                        <Link to="/" className={currentIdx === 2? styles.menu_ones_sel : styles.menu_ones} onClick={(e) => {idOptionChange(2, e)}}>
                             <span className={styles.menu_text}>
                                 <span className={currentIdx === 2? styles.id_temp_sel: styles.id_temp_nosel}>
                                     <span className={styles.blind}>일회용로그인</span>
                                 </span>
                                 <span className={currentIdx === 2? styles.text_sel : styles.text}>일회용 번호</span>
                             </span>
-                        </a>
+                        </Link>
                     </li>
                     <li className={styles.menu_item}>
-                        <a href="#none" className={currentIdx === 3? styles.menu_qr_sel : styles.menu_qr} onClick={(e) => {idOptionChange(3, e)}}>
+                        <Link to="/" className={currentIdx === 3? styles.menu_qr_sel : styles.menu_qr} onClick={(e) => {idOptionChange(3, e)}}>
                             <span className={styles.menu_text}>
                                 <span className={currentIdx === 3? styles.id_qr_sel : styles.id_qr_nosel}>
                                     <span className={styles.blind}>QR로그인</span>
                                 </span>
                                 <span className={currentIdx === 3? styles.text_sel : styles.text}>QR 코드</span>
                             </span>
-                        </a>
+                        </Link>
                         {ngOpen && <NudgeBanner>
                             <NudgeText>ID : sihyeon / PW : sihyeon1! 로그인가능</NudgeText>
                             <button type="button" className={styles.nudge_close} onClick={() =>{dispatch(updateNudge())}}>
@@ -87,7 +102,7 @@ function Content(props) {
                         </NudgeBanner>}
                     </li>
                 </ul>
-                <form>
+                <form onSubmit={submitHandler}>
                     <div className={styles.panel_wrap}>
                         <div className={currentIdx === 1 ? styles.panel_inner : styles.panel_hide}>
                             <div className={styles.id_pw_wrap}>
