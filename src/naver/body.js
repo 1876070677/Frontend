@@ -3,15 +3,18 @@ import styles from './body.module.css';
 import adv from './icon/ad.jpg';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
-import {updateIdFoucs, updatePwFocus, updateNbFocus, updateNudge, updateCurrentIdx} from '../store/updateBodyState';
-import axios from 'axios';
+import {updateNudge} from '../store/updateBodyState';
 
 function Content(props) {
+
+    const dispatch = useDispatch();
+    const ngOpen = useSelector(state => {
+        return state.changeBodyState.nudgeOpen;
+    })
 
     const [idFocus, setIF] = useState(false);
     const [pwFocus, setPF] = useState(false);
     const [nbFocus, setNB] = useState(false);
-    const [nudgeOpen, setNudge] = useState(true);
     const [currentIdx, setCurrentIdx] = useState(1);
     const autoIdFocus = useRef();
 
@@ -25,10 +28,6 @@ function Content(props) {
 
     const updateNbFocuse = () => {
         setNB(!nbFocus);
-    }
-
-    const updateNudge = () => {
-        setNudge(!nudgeOpen);
     }
 
     const idOptionChange = (param, e) =>{
@@ -80,9 +79,9 @@ function Content(props) {
                                 <span className={currentIdx === 3? styles.text_sel : styles.text}>QR 코드</span>
                             </span>
                         </a>
-                        {nudgeOpen && <NudgeBanner>
+                        {ngOpen && <NudgeBanner>
                             <NudgeText>ID : sihyeon / PW : sihyeon1! 로그인가능</NudgeText>
-                            <button type="button" className={styles.nudge_close} onClick={updateNudge}>
+                            <button type="button" className={styles.nudge_close} onClick={() =>{dispatch(updateNudge())}}>
                                 <span className={styles.icon_nudge_close}></span>
                             </button>
                         </NudgeBanner>}

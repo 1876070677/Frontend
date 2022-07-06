@@ -20,7 +20,7 @@ const updateBodyState = createSlice({
         state.nbFocus = !state.nbFocus;
       },
       updateNudge: (state, action) => {
-        state.nudgeOpen = !state.nudgeOpen;
+        state.nudgeOpen = action.payload;
       },
       updateCurrentIdx: (state, action) => {
         state.currentIdx = action.payload;
