@@ -4,22 +4,14 @@ const userInfo = createSlice({
     name : "userInfo",
     initialState : {
         isLogin : false,
-        id : '',
-        nickname: '',
-        actk : ''
+        nickname: ''
     },
     reducers: {
         isLogin : (state, action) => {
             state.isLogin = !state.isLogin;
         },
-        setId : (state, action) => {
-            state.id = action.payload;
-        },
         setNickname : (state, action) => {
             state.nickname = action.payload;
-        },
-        setActk : (state, action) => {
-            state.actk = action.payload;
         }
     }
 })

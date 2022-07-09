@@ -4,8 +4,10 @@ import adv from './icon/ad.jpg';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 import {updateNudge} from '../store/updateBodyState';
-import {isLogin, setId} from '../store/userInfo';
+import {isLogin, setNickname} from '../store/userInfo';
 import {Link, useNavigate} from 'react-router-dom';
+import axios from 'axios';
+import {USER_LOGIN, GET_USER_INFO} from '../static/link';
 
 function Content(props) {
 
@@ -41,15 +43,35 @@ function Content(props) {
         setCurrentIdx(param);
     }
 
-    const submitHandler = (e) => {
-        console.log(e.target.id_input.value);
+    const submitHandler = async (e) => {
         e.preventDefault();
         if (e.target.id_input.value === "" || e.target.pw_input.value === "") {
             alert("아이디 또는 비밀번호를 입력해주세요!");
         } else {
-            dispatch(isLogin(true));
-            dispatch(setId(e.target.id_input.value));
-            navigate('/dev', {replace: true})
+            const response = await axios.post(
+                USER_LOGIN, {
+                    id : e.target.id_input.value,
+                    password : e.target.pw_input.value
+                },
+                {withCredentials : true}
+            )
+            if (response.data.code === 0) {
+                //로그인 성공시
+                console.log("login 성공")
+                dispatch(isLogin(true));
+                window.localStorage.setItem('rftk', response.data.rftk);
+                //dispatch(setNickname(response.data.nickname));
+                //쿠키에 저장된 actk를 이용하여 유저 정보 요청
+                const userInfo = await axios.get(
+                    GET_USER_INFO,
+                    {withCredentials : true}
+                );
+                dispatch(setNickname(userInfo.data.nickname));
+                navigate('/dev', {replace: true})
+            } else {
+                // 로그인 실패
+                console.log(response.data);
+            }
         }
     }
 
@@ -58,8 +80,6 @@ function Content(props) {
             autoIdFocus.current.focus();
         }
     }, [currentIdx])
-
-
 
     return (
         <div className='content'>
