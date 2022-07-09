@@ -1,6 +1,6 @@
 # React를 이용하여 Front 해보기!!
 
-## 1. Naver 로그인 페이지 클론코딩([SourceCode](https://github.com/1876070677/Frontend/tree/main/src/naver), [WebPage](http://shbox.shop:9090))
+## 1. Naver 로그인 페이지 클론코딩([SourceCode](https://github.com/1876070677/Frontend/tree/main/src/naver), [WebPage](https://blog.shbox.shop))
     + Html 레이아웃 구성 방식
     + CSS 기본 태그 익히기
     + React에서 컴포넌트 단위로 나누어서 개발하는 방식(header, body, footer로 나누었음)

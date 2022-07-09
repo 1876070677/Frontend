@@ -25,6 +25,9 @@ yarn-error.log*
 # image file
 /src/naver/icon
 
+# api server upload version
+/src/static/link_s.js
+
 # docker
 .Dockerfile
 .env
