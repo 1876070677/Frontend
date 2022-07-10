@@ -9,22 +9,22 @@ class Footer extends Component {
                     <ul className={styles.footer_link}>
                         <li>
                             <a className={styles.footer_item} href="http://www.naver.com/rules/service.html" target="_blank" rel="noopener noreferrer">
-                                <span class={styles.text}>이용약관</span>
+                                <span className={styles.text}>이용약관</span>
                             </a>
                         </li>
                         <li>
                             <a className={styles.footer_item} href="http://www.naver.com/rules/privacy.html" target="_blank" rel="noopener noreferrer">
-                                <span class={styles.text}>개인정보처리방침</span>
+                                <span className={styles.text}>개인정보처리방침</span>
                             </a>
                         </li>
                         <li>
                             <a className={styles.footer_item} href="http://www.naver.com/rules/disclaimer.html" target="_blank" rel="noopener noreferrer">
-                                <span class={styles.text}>책임의 한계와 법적고지</span>
+                                <span className={styles.text}>책임의 한계와 법적고지</span>
                             </a>
                         </li>
                         <li>
                             <a className={styles.footer_item} href="https://help.naver.com/support/service/main.nhn?serviceNo=532" target="_blank" rel="noopener noreferrer">
-                                <span class={styles.text}>회원정보 고객센터</span>
+                                <span className={styles.text}>회원정보 고객센터</span>
                             </a>
                         </li>
                     </ul>

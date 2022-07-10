@@ -61,9 +61,7 @@ function DevPage() {
       )
       return result
     }
-    console.log("mount");
     getUserData().then( code => {
-      console.log(code);
       if (code === TOKEN_EXPIRED) {
         refreshToken().then( refreshResult => {
           if (refreshResult.data.code === TOKEN_EXPIRED || refreshResult.data.code === TOKEN_INVALID || refreshResult.data.code === TOKEN_NOT_EXIST) {
@@ -71,7 +69,7 @@ function DevPage() {
             navigate('/', {replace : true});
           } else {
             window.localStorage.setItem('rftk', refreshResult.data.rftk);
-            navigate('/dev', {replace: true});
+            window.location.reload();
           }
         })
       } else if (code === TOKEN_INVALID || code === TOKEN_NOT_EXIST) {

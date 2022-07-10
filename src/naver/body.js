@@ -4,7 +4,7 @@ import adv from './icon/ad.jpg';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 import {updateNudge} from '../store/updateBodyState';
-import {isLogin, setNickname} from '../store/userInfo';
+import {setNickname} from '../store/userInfo';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {USER_LOGIN, GET_USER_INFO} from '../static/link';
@@ -72,8 +72,6 @@ function Content(props) {
             )
             if (response.data.code === 0) {
                 //로그인 성공시
-                console.log("login 성공")
-                dispatch(isLogin(true));
                 window.localStorage.setItem('rftk', response.data.rftk);
                 //dispatch(setNickname(response.data.nickname));
                 //쿠키에 저장된 actk를 이용하여 유저 정보 요청
@@ -147,14 +145,14 @@ function Content(props) {
                                         <span className={styles.blind}>아이디</span>
                                     </span>
                                     <input type="text" name="id_input" ref={autoIdFocus} placeholder='아이디' className={styles.input_text} onFocus={updateIdFocus} onBlur={updateIdFocus} autoFocus
-                                    value="sihyeon"></input>
+                                    defaultValue="sihyeon"></input>
                                 </div>
                                 <div className={pwFocus? styles.input_row_sel : styles.input_row}>
                                     <span className={pwFocus ? styles.icon_pw_sel : styles.icon_pw}>
                                         <span className={styles.blind}>비밀번호</span>
                                     </span>
                                     <input type="password" name="pw_input" ref={autoPwFocus} placeholder='비밀번호' className={styles.input_text} onFocus={updatePwFocus} onBlur={updatePwFocus}
-                                    onKeyDown={(e) => checkCapsLock(e)} value="sihyeon1!"></input>
+                                    onKeyDown={(e) => checkCapsLock(e)} defaultValue="sihyeon1!"></input>
                                 </div>
                             </div>
                             <div className={styles.login_keep_wrap}>
@@ -208,7 +206,7 @@ function Content(props) {
                                     네이버앱의&nbsp;
                                 <span className={styles.accent}>
                                     메뉴 > 설정&nbsp;
-                                    <em class={styles.bullet_set}></em>
+                                    <em className={styles.bullet_set}></em>
                                     &nbsp;> 로그인 아이디 관리
                                     <br></br>
                                     > 일회용 로그인 번호 받기
