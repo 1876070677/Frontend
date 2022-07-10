@@ -94,8 +94,9 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<NaverLogin />}></Route>
+        <Route path="/login" element={<NaverLogin />}></Route>
         <Route path="/dev" element={<DevPage />}></Route>
+        <Route path="/" element={<div>사랑해요</div>}></Route>
       </Routes>
     </BrowserRouter>
   );
