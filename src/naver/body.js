@@ -238,7 +238,7 @@ function Content(props) {
                 </li>
             </ul>
             <div className={styles.adv}>
-                <img src={adv} className={styles.adv} alt="adv"></img>
+                <img src={adv} className={styles.adv_img} alt="adv"></img>
             </div>
         </div>
     )
@@ -256,6 +256,9 @@ const NudgeBanner = styled.div`
     background-color: #fff;
     box-sizing: border-box;
     z-index: 10;
+    @media (max-width: 470px) {
+        display:none;
+    }
 `;
 
 const NudgeText = styled.span`

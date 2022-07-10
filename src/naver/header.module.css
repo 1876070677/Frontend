@@ -63,3 +63,10 @@
     width: 155px;
     height: 30px;
 }
+
+@media (max-width: 742px) {
+    .header .header_inner {
+        width: auto;
+        margin: 0 40px
+    }
+}
