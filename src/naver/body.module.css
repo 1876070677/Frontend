@@ -541,6 +541,23 @@ label {
     transform: translate(15px, 0);
   }
 
+  .login_error_wrap {
+    position: relative;
+    min-height: 34px;
+    margin: 10px 0 -10px;
+    padding-left: 17px;
+    padding-right: 40px;
+    text-align: left;
+  }
+
+  .error_message {
+    display: inline-block;
+    font-size: 12px;
+    line-height: -.5px;
+    color: #ff003e;
+    vertical-align: middle;
+  }
+
   .btn_login_wrap {
     margin-top: 20px;
     padding: 0 17px;

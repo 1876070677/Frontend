@@ -21,7 +21,9 @@ function Content(props) {
     const [pwFocus, setPF] = useState(false);
     const [nbFocus, setNB] = useState(false);
     const [currentIdx, setCurrentIdx] = useState(1);
+    const [errorNum, setError] = useState(0);
     const autoIdFocus = useRef();
+    const autoPwFocus = useRef();
 
     const updateIdFocus = () => {
         setIF(!idFocus);
@@ -43,10 +45,23 @@ function Content(props) {
         setCurrentIdx(param);
     }
 
+    const checkCapsLock = (e) => {
+        let result = e.getModifierState("CapsLock");
+        if (result) {
+            setError(4);
+        }else {
+            setError(0);
+        }
+    }
+
     const submitHandler = async (e) => {
         e.preventDefault();
-        if (e.target.id_input.value === "" || e.target.pw_input.value === "") {
-            alert("아이디 또는 비밀번호를 입력해주세요!");
+        if (e.target.id_input.value === "") {
+            setError(1)
+            autoIdFocus.current.focus();
+        } else if (e.target.pw_input.value === "") {
+            setError(2)
+            autoPwFocus.current.focus();
         } else {
             const response = await axios.post(
                 USER_LOGIN, {
@@ -70,6 +85,7 @@ function Content(props) {
                 navigate('/dev', {replace: true})
             } else {
                 // 로그인 실패
+                setError(3);
                 console.log(response.data);
             }
         }
@@ -131,14 +147,14 @@ function Content(props) {
                                         <span className={styles.blind}>아이디</span>
                                     </span>
                                     <input type="text" name="id_input" ref={autoIdFocus} placeholder='아이디' className={styles.input_text} onFocus={updateIdFocus} onBlur={updateIdFocus} autoFocus
-                                    ></input>
+                                    value="sihyeon"></input>
                                 </div>
                                 <div className={pwFocus? styles.input_row_sel : styles.input_row}>
                                     <span className={pwFocus ? styles.icon_pw_sel : styles.icon_pw}>
                                         <span className={styles.blind}>비밀번호</span>
                                     </span>
-                                    <input type="password" name="pw_input" placeholder='비밀번호' className={styles.input_text} onFocus={updatePwFocus} onBlur={updatePwFocus}
-                                    ></input>
+                                    <input type="password" name="pw_input" ref={autoPwFocus} placeholder='비밀번호' className={styles.input_text} onFocus={updatePwFocus} onBlur={updatePwFocus}
+                                    onKeyDown={(e) => checkCapsLock(e)} value="sihyeon1!"></input>
                                 </div>
                             </div>
                             <div className={styles.login_keep_wrap}>
@@ -160,6 +176,27 @@ function Content(props) {
                                     </div>
                                 </div>
                             </div>
+                            {errorNum === 1 && <div className={styles.login_error_wrap}>
+                                <div className={styles.error_message}>
+                                    <strong>아이디</strong>를 입력해주세요.
+                                </div>
+                            </div>}
+                            {errorNum === 2 && <div className={styles.login_error_wrap}>
+                                <div className={styles.error_message}>
+                                    <strong>비밀번호</strong>를 입력해주세요.
+                                </div>
+                            </div>}
+                            {errorNum === 3 && <div className={styles.login_error_wrap}>
+                                <div className={styles.error_message}>
+                                    아이디(로그인 전용 아이디) 또는 비밀번호를 잘못 입력했습니다.<br />
+                                    입력하신 내용을 다시 확인해주세요.
+                                </div>
+                            </div>}
+                            {errorNum === 4 && <div className={styles.login_error_wrap}>
+                                <div className={styles.error_message}>
+                                    <strong>CapsLock</strong>이 켜져있습니다.
+                                </div>
+                            </div>}
                             <div className={styles.btn_login_wrap}>
                                 <button type="submit" className={styles.btn_login} id="login">
                                     <span className={styles.btn_text}>로그인</span>
