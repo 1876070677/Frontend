@@ -74,7 +74,6 @@ function DevPage() {
           }
         })
       } else if (code === TOKEN_INVALID || code === TOKEN_NOT_EXIST) {
-
         navigate('/', {replace: true});
       } else if (code === 0) {
         return 0;
@@ -98,6 +97,9 @@ function App() {
         <Route path="/login" element={<NaverLogin />}></Route>
         <Route path="/dev" element={<DevPage />}></Route>
         <Route path="/" element={<BlogMain />}></Route>
+        <Route path="/test" element={<button type='button' onClick={() => {
+          window.location.reload();
+        }}>Test</button>}></Route>
       </Routes>
     </BrowserRouter>
   );
