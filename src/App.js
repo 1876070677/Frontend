@@ -2,6 +2,7 @@ import './App.css';
 import Header from './naver/header';
 import Content from './naver/body';
 import Footer from './naver/footer';
+import BlogMain from './blog/blog';
 import {useSelector, useDispatch} from 'react-redux';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import React, { useEffect } from 'react';
@@ -96,7 +97,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<NaverLogin />}></Route>
         <Route path="/dev" element={<DevPage />}></Route>
-        <Route path="/" element={<div>사랑해요</div>}></Route>
+        <Route path="/" element={<BlogMain />}></Route>
       </Routes>
     </BrowserRouter>
   );
