@@ -4,10 +4,8 @@ import adv from './icon/ad.jpg';
 import styled from 'styled-components';
 import {useSelector, useDispatch} from 'react-redux';
 import {updateNudge} from '../store/updateBodyState';
-import {setNickname} from '../store/userInfo';
 import {Link, useNavigate} from 'react-router-dom';
-import axios from 'axios';
-import {USER_LOGIN, GET_USER_INFO} from '../static/link';
+import {USER_LOGIN} from '../static/link';
 import RequestServer from '../Axios/Requst';
 
 function Content(props) {
