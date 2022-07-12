@@ -1,7 +1,7 @@
 FROM node:16.13.2-alpine
-WORKDIR "/usr/src/app"
-COPY package.json ./
+WORKDIR /app
+COPY package*.json /app/
 RUN npm install -g npm@8.13.2
 RUN npm install
-COPY ./ ./
+COPY . /app
 CMD ["npm", "start"]
