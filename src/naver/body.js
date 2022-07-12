@@ -8,6 +8,7 @@ import {setNickname} from '../store/userInfo';
 import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import {USER_LOGIN, GET_USER_INFO} from '../static/link';
+import RequestServer from '../Axios/Requst';
 
 function Content(props) {
 
@@ -63,29 +64,22 @@ function Content(props) {
             setError(2)
             autoPwFocus.current.focus();
         } else {
-            const response = await axios.post(
-                USER_LOGIN, {
-                    id : e.target.id_input.value,
-                    password : e.target.pw_input.value
-                },
-                {withCredentials : true}
-            )
-            if (response.data.code === 0) {
-                //로그인 성공시
-                window.localStorage.setItem('rftk', response.data.rftk);
-                //dispatch(setNickname(response.data.nickname));
-                //쿠키에 저장된 actk를 이용하여 유저 정보 요청
-                const userInfo = await axios.get(
-                    GET_USER_INFO,
-                    {withCredentials : true}
-                );
-                dispatch(setNickname(userInfo.data.nickname));
-                navigate('/dev', {replace: true})
-            } else {
-                // 로그인 실패
-                setError(3);
-                console.log(response.data);
-            }
+            RequestServer("post", USER_LOGIN, {
+                id : e.target.id_input.value,
+                password : e.target.pw_input.value
+            }, {withCredentials: true}).then(data => {
+                if (data.code === 0) {
+                    //로그인 성공시
+                    window.localStorage.setItem('rftk', data.rftk);
+                    //dispatch(setNickname(response.data.nickname));
+                    //쿠키에 저장된 actk를 이용하여 유저 정보 요청
+                    navigate('/dev', {replace: true})
+                } else {
+                    // 로그인 실패
+                    setError(3);
+                    console.log(data);
+                }
+            })
         }
     }
 

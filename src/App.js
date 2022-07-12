@@ -53,6 +53,7 @@ function DevPage() {
   return (
     <div className="App">
       <h1>이 페이지는 AccessToken이 존재한다면 로그인을 유지합니다.</h1>
+      <h1>인증이 만료되면 메인페이지로 이동합니다.</h1>
       <h1>닉네임 : {nickname} </h1>
     </div>
   );
