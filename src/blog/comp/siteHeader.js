@@ -21,7 +21,7 @@ function siteHeader() {
             <ul className={styles.main_menu}>
                 <li className={styles.active}>
                     <Link to="/" className={styles.nav}>
-                        <span className={styles.menu_icon_home}>
+                        <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_home}`}>
                             <AiOutlineHome />
                         </span>
                         <span className={styles.link_text}>Home</span>
@@ -29,18 +29,18 @@ function siteHeader() {
                 </li>
                 <li className={styles.active}>
                     <Link to="/" className={styles.nav}>
-                        <span className={styles.menu_icon_home}>
+                        <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_user}`}>
                             <AiOutlineUser />
                         </span>
-                        <span className={styles.link_text}>Home</span>
+                        <span className={styles.link_text}>About Me</span>
                     </Link>
                 </li>
                 <li className={styles.active}>
                     <Link to="/" className={styles.nav}>
-                        <span className={styles.menu_icon_home}>
+                        <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_book}`}>
                             <TbBook2 className={styles.home}/>
                         </span>
-                        <span className={styles.link_text}>Home</span>
+                        <span className={styles.link_text}>Portfolio</span>
                     </Link>
                 </li>
             </ul>

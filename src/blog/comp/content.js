@@ -7,7 +7,7 @@ function Content() {
             <div className={styles.ani_sec}>
                 <section className={styles.main_page}>
                     <div className={styles.section_content}>
-
+                        
                     </div>
                 </section>
             </div>
