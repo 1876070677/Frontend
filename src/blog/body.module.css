@@ -21,6 +21,10 @@ h1, h2, h3, h4, h5, h6 {
     display: block;
 }
 
+.section {
+    display: block;
+}
+
 .blogBody {
     display: block;
     background-color: #edf3f7;

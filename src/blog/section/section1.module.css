@@ -1,0 +1,22 @@
+.animated_section {
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    padding: 0;
+    backface-visibility: hidden;
+    transform: translate3d(0, 0, 0);
+    background: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.section_content {
+    background-color: #fff;
+    padding: 60px;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+    transform: translate3d(0,0,0);
+}
