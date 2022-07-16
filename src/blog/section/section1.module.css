@@ -1,22 +1,137 @@
+@keyframes backInLeft{
+    0%{
+        opacity:.7;-webkit-transform:translateX(-2000px) scale(1);
+        transform:translateX(-2000px) scale(1)
+    }
+    80%{
+        opacity:.7;-webkit-transform:translateX(0) scale(1);
+        transform:translateX(0) scale(1)
+    }
+    to{
+        opacity:1;-webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity:0
+    }
+    to{
+        opacity:1
+    }
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity:1
+    }
+    to{
+        opacity:0;
+    }
+}
+
 .animated_section {
     position: absolute;
     background-color: transparent;
     height: 100%;
     width: 100%;
-    border-radius: 30px;
     padding: 0;
     backface-visibility: hidden;
     transform: translate3d(0, 0, 0);
     background: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
+    animation: backInLeft 1s ease-in-out 0s 1 normal;
 }
 
 .section_content {
     background-color: #fff;
+    border-radius: 30px;
     padding: 60px;
     position: relative;
     min-width: 100%;
     min-height: 100%;
     transform: translate3d(0,0,0);
+}
+
+.row {
+    width: 100%;
+}
+
+.vcentered {
+    vertical-align: middle;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    -webkit-box-direction: normal;
+    -webkit-box-orient: horizontal;
+    flex-direction: row;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    justify-content: center;
+    align-content: stretch;
+    -webkit-box-align: center;
+    align-items: center;
+    text-align: center;
+}
+
+.col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.title_block {
+    position: relative;
+    text-align: center;
+}
+
+.title_text {
+    font-size: 60px;
+    line-height: 74px;
+    margin: 0;
+    text-align: center;
+}
+
+.subtitle {
+    position: absolute;
+    width: 100%;
+    color: #888;
+    font-size: 21px;
+    font-weight: 300;
+    margin: 5px 0;
+    text-align: center;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    animation: fadeIn 2s ease-in-out 0s 1 forwards;
+}
+
+.sb_disable {
+    position: absolute;
+    width: 100%;
+    color: #888;
+    font-size: 21px;
+    font-weight: 300;
+    margin: 5px 0;
+    text-align: center;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9;
+    animation: fadeOut 1s ease-in-out 0s 1 forwards;
+}
+
+@media(max-width: 1024px) {
+    .title_text {
+        font-size: 48px;
+        line-height: 56px;
+        margin: 0 0 10px;
+        text-align: center;
+    }
+
+    .subtitle {
+        font-size: 18px
+    }
 }

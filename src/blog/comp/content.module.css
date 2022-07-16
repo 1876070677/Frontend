@@ -13,3 +13,15 @@
     perspective: 1500px;
     backface-visibility: hidden;
 }
+
+@media(max-width: 1280px) {
+    .content_area {
+        max-width: calc(100% - 330px);
+    }
+}
+
+@media(max-width: 1024px) {
+    .content_area {
+        max-width: 100%;
+    }
+}

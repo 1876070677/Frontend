@@ -42,3 +42,7 @@
     - 로그인, 로그아웃, 회원가입
     - 사진 업로드 or 동영상
     - 애니메이션 모션 사용
+
+### 문제점
+    + Fade in, Fade out 효과 적용하기
+    + SetTimeOut or SetInterval 이용하여 일정시간 이후에 자동으로 Element 전환효과 주기
