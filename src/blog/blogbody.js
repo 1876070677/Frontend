@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './body.module.css'
 import SiteHeader from './comp/siteHeader';
 import Content from './comp/content';
+import ArrowNav from './comp/arrownav';
 
 function blogBody() {
     return(
@@ -10,6 +11,7 @@ function blogBody() {
                 <div className={styles.page_content}>
                     <SiteHeader></SiteHeader>
                     <Content></Content>
+                    <ArrowNav />
                 </div>
             </div>
         </div>

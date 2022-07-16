@@ -1,12 +1,25 @@
 import React, {useState, useEffect} from 'react';
-import styles from './section2.module.css'
+import styles from './section2.module.css';
+import '../animation.css';
 import RequestServer from '../../Axios/Requst';
 import {GET_ACTIVITY} from '../../static/link';
-import {useSelector, useDispatch} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 function AboutMe() {
 
     const [act, setAct] = useState([]);
+
+    const page = useSelector(state => {
+        return state.animate.pageIdx;
+    })
+
+    const prev = useSelector(state => {
+        return state.animate.prevPage;
+    })
+
+    const effect = useSelector(state => {
+        return state.animate.effectNum;
+    })
 
     useEffect(() => {
         RequestServer("get", GET_ACTIVITY).then(response => {
@@ -17,7 +30,7 @@ function AboutMe() {
     }, [])
 
     return (
-        <section className={styles.animated_section}>
+        <section className={`${styles.animated_section} ${page === 1 && `on${effect}`} ${page !== 1 && prev === 1 && `off${effect}`} ${page !== 1 && prev !== 1 && `disable`}`}>
             <div className={styles.section_content}>
                 <div className={styles.page_title}>
                     <h2>About <span>Me</span></h2>

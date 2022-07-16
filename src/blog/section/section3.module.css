@@ -1,0 +1,28 @@
+.animated_section {
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    backface-visibility: hidden;
+    background: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    overflow: auto;
+    border-radius: 30px;
+}
+
+.section_content {
+    background-color: #fff;
+    padding: 60px;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+@media (max-width: 1024px) {
+    .animated_section {
+        overflow: auto !important;
+        border-radius: 0;
+    }
+}

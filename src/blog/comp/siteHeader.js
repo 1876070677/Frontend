@@ -1,12 +1,19 @@
 import styles from './header.module.css';
 import profileImg from '../img/profile.jpg';
-import {Link} from 'react-router-dom';
+import {useSelector, useDispatch} from 'react-redux';
+import {setPgIdx, setPrevPage, setEffectNum} from '../../store/animate';
 import {AiOutlineHome, AiOutlineUser} from 'react-icons/ai';
 import {TbBook2} from 'react-icons/tb';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {faGithub, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { faBlog, faEnvelope } from "@fortawesome/free-solid-svg-icons";
-function siteHeader() {
+function SiteHeader() {
+
+    const dispatch = useDispatch();
+    const page = useSelector(state => {
+        return state.animate.pageIdx;
+    })
+
     return(
         <header className={`${styles.header} ${styles.mobile_menu_hide}`}>
             <div className={styles.header_content}>
@@ -20,28 +27,40 @@ function siteHeader() {
             </div>
             <ul className={styles.main_menu}>
                 <li className={styles.active}>
-                    <Link to="/" className={styles.nav}>
+                    <div className={`${styles.nav} ${page !== 0 && styles.not_focus}`} onClick={() => {
+                        dispatch(setEffectNum());
+                        dispatch(setPrevPage(page));
+                        dispatch(setPgIdx(0))
+                        }}>
                         <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_home}`}>
                             <AiOutlineHome />
                         </span>
                         <span className={styles.link_text}>Home</span>
-                    </Link>
+                    </div>
                 </li>
                 <li className={styles.active}>
-                    <Link to="/" className={styles.nav}>
+                    <div className={`${styles.nav} ${page !== 1 && styles.not_focus}`} onClick={() => {
+                        dispatch(setEffectNum());
+                        dispatch(setPrevPage(page));
+                        dispatch(setPgIdx(1));
+                        }}>
                         <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_user}`}>
                             <AiOutlineUser />
                         </span>
                         <span className={styles.link_text}>About Me</span>
-                    </Link>
+                    </div>
                 </li>
                 <li className={styles.active}>
-                    <Link to="/" className={styles.nav}>
+                    <div className={`${styles.nav} ${page !== 2 && styles.not_focus}`} onClick={() => {
+                        dispatch(setEffectNum());
+                        dispatch(setPrevPage(page));
+                        dispatch(setPgIdx(2));
+                        }}>
                         <span className={`${styles.menu_icon} ${styles.lnr} ${styles.lnr_book}`}>
                             <TbBook2 className={styles.home}/>
                         </span>
                         <span className={styles.link_text}>Portfolio</span>
-                    </Link>
+                    </div>
                 </li>
             </ul>
             <div className={styles.social_links}>
@@ -76,4 +95,4 @@ function siteHeader() {
     )
 }
 
-export default siteHeader;
+export default SiteHeader;

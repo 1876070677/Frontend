@@ -171,11 +171,15 @@
         padding: 10px;
         transition: all 0.3s ease-in-out;
         text-decoration: none;
+        color:#0ba376;
+        cursor: pointer;
+    }
+
+    .not_focus {
         color: #b5b6b7;
     }
 
-    .nav:focus,
-    .nav:hover {
+    .not_focus:hover {
         color:#0ba376;
     }
 
@@ -188,6 +192,12 @@
         font-variant: normal;
         text-transform: none;
         line-height: 1;
+    }
+
+    .nav:hover .link_text {
+        right: 100%;
+        visibility: visible;
+        opacity: 1;
     }
 
     .link_text {
@@ -205,6 +215,10 @@
         transition: all 0.3s ease-in-out;
         z-index: 0;
         box-shadow: 0 10px 10px -8px rgb(0 0 0 / 22%);
+    }
+
+    nav:hover.link_text {
+        visibility:visible;
     }
 }
 
