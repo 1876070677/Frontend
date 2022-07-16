@@ -1,0 +1,242 @@
+@keyframes backInLeft{
+    0%{
+        opacity:.7;-webkit-transform:translateX(-2000px) scale(1);
+        transform:translateX(-2000px) scale(1)
+    }
+    80%{
+        opacity:.7;-webkit-transform:translateX(0) scale(1);
+        transform:translateX(0) scale(1)
+    }
+    to{
+        opacity:1;-webkit-transform:scale(1);
+        transform:scale(1)
+    }
+}
+
+.animated_section {
+    position: absolute;
+    background-color: transparent;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    backface-visibility: hidden;
+    background: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    overflow: auto;
+    border-radius: 30px;
+    animation: backInLeft 1s ease-in-out 0s 1 normal;
+}
+
+.section_content {
+    background-color: #fff;
+    padding: 60px;
+    position: relative;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.page_title{
+    display: inline-block;
+    position: relative;
+    padding-right: 25px;
+    padding-bottom: 15px;
+    margin-bottom: 10px;
+}
+
+.page_title h2{
+    position: relative;
+    font-size: 32px;
+    z-index:1;
+}
+
+.page_title h2 span {
+    color: #0ba376;
+}
+
+.page_title::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 10px;
+    right: 0;
+    content: '';
+    height: 30px;
+    width: 50px;
+    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    z-index: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.introduce, .info, .skills {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.info_list{
+    padding-top: 1em;
+}
+
+.info_list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.info_list ul li{
+    margin-bottom: 10px;
+}
+
+.title {
+    color: #0ba376;
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+.block_title {
+    display: inline-block;
+    position: relative;
+    padding-right: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.block_title::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 10px;
+    right: 0;
+    content: '';
+    height: 20px;
+    width: 30px;
+    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    z-index: 0;
+}
+
+.block_title h3 {
+    position: relative;
+    font-size: 21px;
+    z-index: 1;
+}
+
+.white_space {
+    padding-bottom: 30px;
+}
+
+.knowledges li{
+    display: inline-block;
+    background-color: #0ba376;
+    border-radius: 3px;
+    color: #fff;
+    padding: 1px 10px;
+    margin: 3px 2px;
+    font-size: 13px
+}
+
+.timeline_item {
+    position: relative;
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+    padding-bottom: 15px;
+}
+
+.left_part {
+    width: 30%;
+    display: table-cell;
+    padding-right: 25px;
+    min-height: 100%;
+    text-align: right;
+    vertical-align: top;
+}
+
+.item_company {
+    display: block;
+    margin: 0 0 4px;
+    font-size: 13px;
+    font-weight: 300;
+    line-height: 1.45em;
+    color: #a5a6a7;
+}
+
+.divider {
+    position: absolute;
+    top: 0;
+    left: 30%;
+    bottom: 0;
+    width: 1px;
+    background-color: #eee;
+}
+
+.divider::before {
+    content: '';
+    display: block;
+    margin-top: 4px;
+    width: 17px;
+    height: 17px;
+    position: absolute;
+    margin-left: -8px;
+    border-radius: 10px;
+    background-color: #0ba376;
+    opacity: .25;
+    z-index: 0;
+}
+
+.divider::after {
+    content: '';
+    display: block;
+    margin-top: 8px;
+    width: 9px;
+    height: 9px;
+    position: absolute;
+    margin-left: -4px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: 2px solid #0ba376;
+    z-index: 1;
+}
+
+.right_part {
+    width: 70%;
+    display:table-cell;
+    padding-left: 25px;
+    padding-right: 15px;
+    vertical-align: top;
+}
+
+.item_title {
+    font-size: 16px;
+    margin-bottom: 3px;
+}
+
+.right_part p {
+    font-size: 0.92em;
+}
+
+@media (max-width: 1024px) {
+    .animated_section {
+        overflow: auto !important;
+        border-radius: 0;
+    }
+}
+
+@media (min-width: 576px) {
+    .introduce, .activity {
+        flex: 0 0 58%;
+        max-width: 58%;
+    }
+    .info, .skills {
+        flex: 0 0 42%;
+        max-width: 42%;
+    }
+}

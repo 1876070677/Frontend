@@ -8,14 +8,14 @@ import {faGithub, faInstagram} from '@fortawesome/free-brands-svg-icons';
 import { faBlog, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 function siteHeader() {
     return(
-        <header className={styles.header}>
+        <header className={`${styles.header} ${styles.mobile_menu_hide}`}>
             <div className={styles.header_content}>
                 <div className={styles.header_photo}>
                     <img src={profileImg} alt="profile"></img>
                 </div>    
             </div>
             <div className={styles.header_title}>
-                <h2>조회수</h2>
+                <h2>김 시 현</h2>
                 <h4>Backend Developer</h4>
             </div>
             <ul className={styles.main_menu}>

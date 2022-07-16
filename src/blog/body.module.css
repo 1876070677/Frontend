@@ -18,11 +18,17 @@ li {
 h1, h2, h3, h4, h5, h6 {
     color: #222;
     font-family: 'Poppins', Helvetica, sans-serif;
+    font-weight: 600;
     display: block;
+    margin: 0;
 }
 
 .section {
     display: block;
+}
+
+p {
+    margin-bottom: 10px;
 }
 
 .blogBody {
@@ -76,4 +82,18 @@ h1, h2, h3, h4, h5, h6 {
     .page {
         padding-left: 30px;
     }
+}
+
+@media(max-width:1024px) {
+    .page {
+        padding: 0;
+    }
+
+    .page_content {
+        padding: 0;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100%;
+    }
+
 }
