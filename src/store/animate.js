@@ -11,6 +11,7 @@ const animate = createSlice ({
         pageIdx: 0,
         prevPage: -1,
         effectNum: randomNumbuerInRange(0, 5),
+        toggle: false,
     },
     reducers: {
         setSbIdx: (state, action) => {
@@ -30,6 +31,12 @@ const animate = createSlice ({
         },
         decreasePg: (state, action) => {
             state.pageIdx = (state.pageIdx - 1) < 0 ? 2 : (state.pageIdx - 1)
+        },
+        setToggle: (state, action) => {
+            state.toggle = !(state.toggle);
+        },
+        toggleInit: (state, action) => {
+            state.toggle = false;
         }
     }
 })
@@ -37,5 +44,5 @@ const animate = createSlice ({
 export default animate;
 export const {
     setSbIdx, setPgIdx, setPrevPage, setEffectNum,
-    increasePg, decreasePg,
+    increasePg, decreasePg, setToggle, toggleInit
   } = animate.actions;

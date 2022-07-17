@@ -14,8 +14,12 @@ function SiteHeader() {
         return state.animate.pageIdx;
     })
 
+    const tg = useSelector(state => {
+        return state.animate.toggle;
+    })
+
     return(
-        <header className={`${styles.header} ${styles.mobile_menu_hide}`}>
+        <header className={`${styles.header} ${!tg && styles.mobile_menu_hide}`}>
             <div className={styles.header_content}>
                 <div className={styles.header_photo}>
                     <img src={profileImg} alt="profile"></img>

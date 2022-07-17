@@ -117,6 +117,7 @@ function AboutMe() {
                         </ul>
                     </div>
                 </div>
+                <div className={styles.white_space}></div>
             </div>
         </section>
     )

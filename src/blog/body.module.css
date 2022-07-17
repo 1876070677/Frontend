@@ -45,7 +45,6 @@ p {
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    min-height: 100vh;
     scroll-behavior: smooth;
     overflow: hidden;
     -ms-overflow-style: none;
@@ -86,14 +85,18 @@ p {
 
 @media(max-width:1024px) {
     .page {
+        /* height: 100vh;
+        padding: 0 0 80px 0;
+        background-color: #fff; */
         padding: 0;
     }
 
     .page_content {
         padding: 0;
-        margin: 0;
+        margin: 0; 
         border-radius: 0;
-        min-height: 100%;
+        background: none;
+        box-shadow: none;
+        height: 100vh;
     }
-
 }
