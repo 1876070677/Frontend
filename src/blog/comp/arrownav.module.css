@@ -24,7 +24,7 @@
 
 .arrow_right:hover,
 .arrow_left:hover {
-    color: #0ba376;
+    color: #d05663;
 }
 
 @media (max-width: 1024px) {
@@ -34,7 +34,7 @@
         right: 10px;
         bottom: 100px;
         padding: 5px 0;
-        border: 2px solid #0ba376;
+        border: 2px solid #d05663;
     }
     
     .arrow_nav div{

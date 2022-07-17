@@ -6,10 +6,10 @@
         height: 48px;
         line-height: 46px;
         text-align: center;
-        background-color: #0ba376;
         right: 10px;
         font-size: 19px;
         top: 10px;
+        background-color: #d05663;
         border-radius: 30px;
         transform: rotate(0deg);
         transition: .5s ease-in-out;
@@ -28,6 +28,10 @@
         left: 25%;
         transform: rotate(0deg);
         transition: .25s ease-in-out;
+    }
+
+    .open {
+        background: none;
     }
     
     .menu_toggle span:nth-child(1) {

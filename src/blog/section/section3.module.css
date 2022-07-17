@@ -42,7 +42,7 @@
     content: '';
     height: 30px;
     width: 50px;
-    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center center, #d05663, #d05663 1px, transparent 0px, transparent 100%);
     background-size: 6px 6px;
     z-index: 0;
 }
@@ -81,7 +81,7 @@
 
 h4 span {
     font-size: 20px;
-    color: #0ba376;
+    color: #d05663;
     font-weight: 600;
 }
 

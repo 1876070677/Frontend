@@ -58,10 +58,14 @@ function Portfolio () {
                     </a>
                   </figure>
                   <figure className={styles.item}>
-                    <h4>> <span>개인프로젝트</span> - React를 활용한 네이버 로그인 페이지 클론코딩 + Node.js를 활용한 jwt 토큰 인증 로그인 구현</h4>
+                    <a href='https://velog.io/@1876070677/React.js를-활용한-네이버-로그인-페이지-클론코딩-및-Node.js-로그인-구현' target="_blank" rel="noreferrer">
+                      <h4>> <span>개인프로젝트</span> - React를 활용한 네이버 로그인 페이지 클론코딩 + Node.js를 활용한 jwt 토큰 인증 로그인 구현</h4>
+                    </a>
                   </figure>
                   <figure className={styles.item}>
-                    <h4>> <span>개인프로젝트</span> - React를 활용하여 포트폴리오 템플릿 비슷하게 따라 만들기</h4>
+                    <a href='https://velog.io/@1876070677/React를-이용하여-포트폴리오-웹사이트를-제작해보자' target="_blank" rel="noreferrer">
+                      <h4>> <span>개인프로젝트</span> - React를 활용하여 포트폴리오 템플릿 비슷하게 따라 만들기</h4>
+                    </a>
                   </figure>
                   <figure className={styles.item}>
                     <h4>> <span>SELab</span> - 기존의 MSA 식별 기법에서 검출되지 않은 컴포넌트들에 대하여 마이크로 서비스 식별</h4>

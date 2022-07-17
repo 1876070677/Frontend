@@ -35,7 +35,7 @@
 }
 
 .page_title h2 span {
-    color: #0ba376;
+    color: #d05663;
 }
 
 .page_title::after {
@@ -46,7 +46,7 @@
     content: '';
     height: 30px;
     width: 50px;
-    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center center, #d05663, #d05663 1px, transparent 0px, transparent 100%);
     background-size: 6px 6px;
     z-index: 0;
 }
@@ -81,7 +81,7 @@
 }
 
 .title {
-    color: #0ba376;
+    color: #d05663;
     margin-right: 5px;
     font-weight: 600;
 }
@@ -102,7 +102,7 @@
     content: '';
     height: 20px;
     width: 30px;
-    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-image: -webkit-repeating-radial-gradient(center center, #d05663, #d05663 1px, transparent 0px, transparent 100%);
     background-size: 6px 6px;
     z-index: 0;
 }
@@ -119,7 +119,7 @@
 
 .knowledges li{
     display: inline-block;
-    background-color: #0ba376;
+    background-color: #d05663;
     border-radius: 3px;
     color: #fff;
     padding: 1px 10px;
@@ -171,7 +171,7 @@
     position: absolute;
     margin-left: -8px;
     border-radius: 10px;
-    background-color: #0ba376;
+    background-color: #d05663;
     opacity: .25;
     z-index: 0;
 }
@@ -186,7 +186,7 @@
     margin-left: -4px;
     border-radius: 5px;
     background-color: #fff;
-    border: 2px solid #0ba376;
+    border: 2px solid #d05663;
     z-index: 1;
 }
 

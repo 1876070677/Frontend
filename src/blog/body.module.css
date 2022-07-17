@@ -33,7 +33,7 @@ p {
 
 .blogBody {
     display: block;
-    background-color: #edf3f7;
+    background-color: #f4f2f3;
     margin: 0;
     width: 100%;
     height: 100%;
@@ -71,7 +71,7 @@ p {
     min-height: 80vh;
     margin: 10vh auto;
     padding: 0;
-    background: linear-gradient(#0b7080, #0ba376);
+    background: linear-gradient(#344648, #7d8e95);
     box-shadow: 0 0 100px -5px rgb(0 0 0 / 25%);
     border-radius: 32px;
     backface-visibility: hidden;
