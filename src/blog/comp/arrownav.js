@@ -12,7 +12,7 @@ function ArrowNav() {
     })
 
     return (
-        <div className={styles.arrow_nav}>
+        <div className={`${styles.arrow_nav}`}>
             <div className={styles.arrow_right} onClick={() => {
                 dispatch(setEffectNum());
                 dispatch(setPrevPage(page));

@@ -37,12 +37,12 @@ const animate = createSlice ({
         },
         toggleInit: (state, action) => {
             state.toggle = false;
-        }
+        },
     }
 })
 
 export default animate;
 export const {
     setSbIdx, setPgIdx, setPrevPage, setEffectNum,
-    increasePg, decreasePg, setToggle, toggleInit
+    increasePg, decreasePg, setToggle, toggleInit,
   } = animate.actions;
