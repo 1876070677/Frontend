@@ -20,6 +20,71 @@
     min-height: 100%;
 }
 
+.page_title {
+    display: inline-block;
+    position: relative;
+    padding-right: 25px;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+}
+
+.page_title h2 {
+    position: relative;
+    font-size: 32px;
+    z-index: 1;
+}
+
+.page_title::after {
+    position: absolute;
+    opacity: 0.45;
+    top: 10px;
+    right: 0;
+    content: '';
+    height: 30px;
+    width: 50px;
+    background-image: -webkit-repeating-radial-gradient(center center, #0ba376, #0ba376 1px, transparent 0px, transparent 100%);
+    background-size: 6px 6px;
+    z-index: 0;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.portfolio_content {
+    position: relative;
+    overflow: hidden;
+}
+
+.item {
+    cursor: pointer;
+}
+
+.item:hover {
+    background-color: #eee;
+    transition: all 1s;
+}
+
+.item h4{
+    padding: 15px 0;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+h4 span {
+    font-size: 20px;
+    color: #0ba376;
+    font-weight: 600;
+}
+
 @media (max-width: 1024px) {
     .animated_section {
         overflow: auto !important;
