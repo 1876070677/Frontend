@@ -87,7 +87,7 @@ function SiteHeader() {
                 </ul>
             </div>
             <div className={styles.header_buttons}>
-                <a href="mailto:1876070677@shbox.shop" className={styles.btn_primary}>
+                <a href="mailto:1876070677@shbox.kr" className={styles.btn_primary}>
                     <span className={styles.button_text}>
                         <FontAwesomeIcon icon={faEnvelope} />
                     </span>

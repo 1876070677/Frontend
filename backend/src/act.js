@@ -14,8 +14,10 @@ async function act(req, res) {
     } catch(err) {
         result.code = 1;
         result.message = err;
+    } finally {
+        conn.release();
+        return res.send(result);
     }
-    return res.send(result);
 }
 
 module.exports = {
